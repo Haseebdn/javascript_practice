@@ -227,6 +227,7 @@ const car = {
     console.log(this.brand);
   }
 };
+car.showBrand(); // Toyota
 
 // Work with the object dynamically
 let userz = {
@@ -239,3 +240,17 @@ function showName() {
 
 userz.how = showName;
 userz.how(); // ali
+
+// ============================ Constructor and new operator
+
+function Eser(name, age) {
+  this.name = name;
+  this.age = age;
+  this.isAdmin = false;
+}
+
+let userw = new Eser("Jack", 25);
+
+console.log(userw.name); // Jack
+console.log(userw.age); // 25
+console.log(userw.isAdmin); // false
