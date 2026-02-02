@@ -15,242 +15,332 @@ const me = {
   "residential city": "Lahore", //                 use double quotes for multi-word keys
 };
 console.log(me);
-// console.log(me.name);                     //    dot notation multi-word keys with spaces not allowed
-// console.log(me["residential city"]);      //    bracket notation for multi-word keys with spaces
-me.isadmin = true; //                              adding new property for multi-word keys use bracket notation
-me["residential city"] = "Islamabad"; //           updating property for multi-word keys use bracket notation
+
+//dot notation
+
+console.log(me.name); //only for single word keys
+
+//bracket notation for multi-word keys with spaces
+
+console.log(me["residential city"]);
+
+//  adding single word key
+
+me.isadmin = true; //
+
+// updating and adding property for multi-word keys use bracket notation
+
+me["residential city"] = "Islamabad"; //
 me["fav hobby"] = "driving";
 console.log(me);
-delete me.age; // deleting property
+
+// Deleting properties
+
+delete me.age; 
 delete me["fav hobby"];
 console.log(me);
 
-//============================ Using variables as keys
 
-let keyy = "email";
-let ad = {};
-ad[keyy] = "ahmed@example.com";
-// set
-ad["likes birds"] = "yes";
+// ================================ Object Methods =============================
 
-// get
-console.log(ad);
-// delete
-// delete ad["likes birds"];
-// console.log(ad);
+// 1. ----------------------- Object.keys() -------------------
 
-// let key1 = prompt("What do you want to know about me?", "residential city");
-// console.log(me[key1]);                       // get property using variable as key
+// returns an array of a given object's own property names, in the same order.
 
-// ============================ computed properties
+// object.keys(obj);
 
-let fruit =("Which fruit to buy?", "apple");
-
-let bag = {
-  [fruit]: 5,
-};
-console.log(bag);
-
-// ============================ Property value shorthand
-
-
-const name1 = "Ali";
-const age1 = 30;
-const keyc="city";
-
-const person = {
-  name1, // same as name1: name1
-  age1,  // same as age1: age1
-  keyc,
-};
-console.log(person);
-
-//============ For instance, a number 0 becomes a string "0" when used as a property key:
-
-let obj = {
-  0: "test" // same as "0": "test"
+const user1 = {
+  name: "Ali",
+  age: 20,
+  city: "Karachi",
 };
 
-// both alerts access the same property (the number 0 is converted to string "0")
-// alert( obj["0"] ); // test
-// alert( obj[0] ); // test (same property)
+console.log(Object.keys(user1)); // ["name", "age", "city"]
 
-// =========================== In operator
+// ----------------------- Object.keys() -------------------
 
-console.log("name1" in person);
+// 2. ----------------------- Object.values() -------------------
 
+// returns an array of a given object's own enumerable property values, in the same order. 
 
-// ======================== for...in loop
-const user2 = {
-  name: "ABC",
-  age: 22,
-  city: "Lahore"
+// object.values(obj);
+
+const user2= {
+  name: "Ahmed",
+  age: 25,
+  city: "Lahore",
 };
+console.log(Object.values(user2)); // ["Ahmed", 25, "Lahore"]
 
-for (let key in user2) 
-  console.log(key + ": " + user2[key]);
-  //console.log(key);
-  // console.log(user2[key]);
+// ----------------------- Object.values() -------------------
 
-  let codes = {
-  49: "Germany",
-  "41": "Switzerland",
-  "44": "Great Britain",
-  // ..,
-  "1": "USA"
-};
+// 3. ----------------------- Object.entries() -------------------
 
-for (let code in codes) 
-  console.log(code); //  does not respect creation order 1, 41, 44, 49
+// returns an array of a given object's own enumerable string-keyed property [key, value] pairs, in the same order.
 
+// object.entries(obj);
 
-let codes1 = {
-  "+49": "Germany",
-  "+41": "Switzerland",
-  "+44": "Great Britain",
-  // ..,
-  "+1": "USA"
-};
-
-for (let code in codes1) {
-   console.log(code); // respect creation order 49, 41, 44, 1
-}
-
-// ======================== Object references
-
-let a = { name: "Ali" };
-let b = a;  // a and b refer the same object
-b.name = "Ahmed"; // modify the object via b
-console.log(a.name); // "Ahmed", change is visible via a
-
-// ======================== Copying objects
-
-//                       Spread operator {...}
-let original = { name: "Original" };
-let copy = {...original}; // new empty object
-console.log(copy);
-copy.name = "Copy"; // modify the copy
-console.log(original.name); // "Original", original object is intact
-console.log(copy.name); // "Copy"
-
-
-let sain= {
-  name: "John",
+const user3  = {
+  name: "Hammad",
   age: 30,
-  me:20
+  city: "Islamabad",
+};
+console.log(Object.entries(user3)); // [["name", "Hammad"], ["age", 30], ["city", "Islamabad"]]
+
+// ----------------------- Object.entries() -------------------
+
+//4. ----------------------- Object.assign() -------------------
+
+// used to copy the values of all enumerable own properties from one or more source objects to a target object. It returns the target object.
+
+// Object.assign(target, ...sources);
+
+const target = { a: 1, b: 2 };
+const source = { d: 4, c: 5 };
+
+const returnedTarget = Object.assign(target, source,);
+
+console.log(returnedTarget); // { a: 1, b: 2, c: 5, d: 4 }
+
+// ----------------------- Object.assign() -------------------
+
+//5. ----------------------- Spread {...} -------------------
+
+// object spread copies properties from one object to another
+
+// let newObj = { ...obj1, ...obj2 };
+
+const objA = { a: 1, b: 2 };
+const objB = { c: 3, d: 4 };
+
+const objC = { ...objA, ...objB };
+console.log(objC); // { a: 1, b: 2, c: 3, d: 4 }
+
+// ----------------------- Spread {...} -------------------
+
+//6. ----------------------- hasOwnProperty() -------------------
+
+// method returns a boolean indicating whether the object has the specified property as its own property.
+
+// obj.hasOwnProperty(prop);
+
+const marks = {
+  math: 90,
+  physics: 85,
+  chemistry: 88,
 };
 
-let clone = {}; // the new empty object
+console.log(marks.hasOwnProperty("math")); // true
+console.log(marks.hasOwnProperty("biology")); // false
 
-// let's copy all user properties into it
-for (let key in sain) {
-  clone[key] = sain[key];
-}
-// now clone is a fully independent object with the same content
-clone.name = "Pete"; // changed the data in it
+// ----------------------- hasOwnProperty() -------------------
 
-console.log( sain ); // still John in the original object
-console.log( clone); // Pete in the cloned object
+//7. ----------------------- Object.freeze() -------------------
 
-//                  Object.assign
+// method freezes an object. A frozen object can no longer be changed
 
-let obj1 = { a: 1, b: 2 };
-let obj2 = { b: 3, c: 4 };
-let merged = Object.assign({}, obj1, obj2);
-merged.a=5;
-console.log(obj1);
-console.log(merged); // { a: 1, b: 3, c: 4 }  obj2 properties overwrite obj1 properties with the same key
-// If there are more than two source objects, properties of later objects overwrite earlier ones.
-//alert( merged.b == obj2.b ); 
+// Object.freeze(obj);
 
-
-//                             Nested objects
-
-let usere = {
-  name: "John",
-  sizes: {
-    height: 182,
-    width: 50
-  }
-};
-
-let clone1 = Object.assign({}, usere);
-
-alert( usere.sizes === clone1.sizes ); // true, same object
-
-// user and clone share sizes
-usere.sizes.width = 60;    // change a property from one place
-//console.log(clone1.sizes.width); // 60, get the result from the other one
-
-
-
-//                  structuredClone
-
-let userd = {
-  name: "John",
-  sizes: {
-    height: 182,
-    width: 50
-  }
-};
-
-let cloned = structuredClone(userd);
-
-alert( userd.sizes === cloned.sizes ); // false, different objects
-
-// user and clone are totally unrelated now
-userd.sizes.width = 60;    // change a property from one place
-//alert(cloned.sizes.width); // 50, not related
-// It also supports circular references, 
-
-
-// =========================== Garbage Collection
-
-// Garbage collection is an automatic memory management process in JavaScript that 
-// removes objects from memory when they are no longer reachable or needed.
-
-let userh = { name: "Haseeb" };
-let admin = userh;
-
-userh = null;   // still reachable via admin
-//➡️ Object is not deleted because admin still references it.
-
-admin = null;  // now unreachable
-//➡️ Object becomes garbage and is removed.
-
-// =========================== this keyword
-
-// Access the object’s own properties
-const car = {
+const my_car = {
   brand: "Toyota",
-  showBrand() {
-    console.log(this.brand);
-  }
-};
-car.showBrand(); // Toyota
-
-// Work with the object dynamically
-let userz = {
-  name: "ali"
+  model: "Camry",
 };
 
-function showName() {
-  console.log(this.name);
-}
+Object.freeze(my_car);
+my_car.year = 2020; // This will not be added because the object is frozen
+console.log(my_car);
 
-userz.how = showName;
-userz.how(); // ali
+//console.log(Object.isFrozen(my_car)); // (true,false) check if object is frozen
 
-// ============================ Constructor and new operator
 
-function Eser(name, age) {
-  this.name = name;
-  this.age = age;
-  this.isAdmin = false;
-}
+// ----------------------- Object.freeze() -------------------
 
-let userw = new Eser("Jack", 25);
+//8. ----------------------- Object.seal() ---------------------
 
-console.log(userw.name); // Jack
-console.log(userw.age); // 25
-console.log(userw.isAdmin); // false
+// method seals an object, preventing new properties from being added to it 
+
+// Object.seal();
+
+const my_bike = {
+  brand: "Honda",
+  model: "CBR",
+};
+
+Object.seal(my_bike);
+my_bike.year = 2020; // This will not be added because the object is sealed
+console.log(my_bike);
+
+log(Object.isSealed(my_bike)); // (true,false) check if object is sealed
+
+// ----------------------- Object.seal() -------------------
+
+//9. ----------------------- Object.create() -------------------
+
+// method creates a new object, using an existing object as the prototype of the newly created object.
+
+// Object.create(proto, [propertiesObject]);
+
+const personProto = {
+  greet() {
+    console.log("Hello!");
+  },
+};
+const person1 = Object.create(personProto);
+person1.name = "Ali";
+person1.greet(); // Hello!
+
+// ----------------------- Object.create() -------------------
+
+//10. ----------------------- Object.is() -------------------
+
+// method determines whether two values are the same value.
+
+// Object.is(value1, value2);
+
+console.log(Object.is("foo", "foo")); // true
+console.log(Object.is(1,1)); // true
+
+// ----------------------- Object.is() -------------------
+
+//11. ----------------------- Object.defineProperty() -------------------
+
+// method defines a new property directly on an object, or modifies an existing property on an object, and returns the object.
+
+// Object.defineProperty(obj, prop, descriptor);
+
+const objD = {};
+Object.defineProperty(objD, "property1", {
+  value: 42,
+  writable: false,
+});
+console.log(objD.property1); // 42
+
+// ----------------------- Object.defineProperty() -------------------
+
+//12. ----------------------- Object.defineProperties() -------------------
+
+// method defines multiple new or modifies existing properties directly on an object, returning the object.
+
+// Object.defineProperties(obj, props);
+
+Object.defineProperties(user, {
+  id: { value: 1 },
+  role: { value: "admin" }
+});
+
+// ----------------------- Object.defineProperties() -------------------
+
+//13. ----------------------- getOwnPropertyDescriptors() -------------------
+
+// method returns all own property descriptors of a given object.
+
+// Object.getOwnPropertyDescriptors(obj);
+
+const objE = {
+  property1: 42,
+  property2: "Hello",
+};
+
+Object.defineProperty(objE, "property1", {
+  value: 42,
+  writable: false,
+})
+
+console.log(Object.getOwnPropertyDescriptors(objE));
+
+// ----------------------- getOwnPropertyDescriptors() -------------------
+
+//14. ----------------------- Object.getPrototypeOf() -------------------
+
+// method returns the prototype (i.e. the internal [[Prototype]] property) of the specified object.
+
+// Object.getPrototypeOf(obj);
+
+const proto = {
+  greet() {
+    console.log("Hello!");
+  } 
+};
+const objF = Object.create(proto);
+console.log(Object.getPrototypeOf(objF) === proto); // true
+
+// ----------------------- Object.getPrototypeOf() -------------------
+
+//15. ----------------------- toString() -------------------
+
+// method returns a string representing the object.
+
+// obj.toString();
+
+const objG = {
+  name: "Ali",
+  age: 25,
+};
+console.log(objG.toString()); // [object Object]
+
+// ----------------------- toString() -------------------
+
+//16. ----------------------- valueOf() -------------------
+
+// method returns the primitive value of the specified object.
+
+// obj.valueOf();
+
+const objH = {
+  name: "Ahmed",
+  age: 30,
+};
+console.log(objH.valueOf()); // { name: 'Ahmed', age: 30 }
+
+// ----------------------- valueOf() -------------------
+
+//17. ----------------------- propertyIsEnumerable() -------------------
+
+// method returns a boolean value indicating whether the specified property is enumerable.
+
+// obj.propertyIsEnumerable(prop);
+
+const objI = {
+  name: "Ali",
+  age: 30,
+};
+console.log(objI.propertyIsEnumerable("name")); // true
+
+
+// ----------------------- propertyIsEnumerable() -------------------
+
+//18. ----------------------- Object.getOwnPropertyNames() -------------------
+
+// Returns all property names, including non-enumerable ones.
+
+// Object.getOwnPropertyNames(obj);
+
+const objJ = {};
+Object.defineProperty(objJ, "nonEnumerableProp", {
+  value: 42,
+  enumerable: false,
+});
+objJ.enumerableProp = "Hello";
+
+console.log(Object.getOwnPropertyNames(objJ)); // ["nonEnumerableProp", "enumerableProp"]
+
+// ----------------------- Object.getOwnPropertyNames() -------------------
+
+//19. ----------------------- Object.preventExtensions() -------------------
+
+// Prevents new properties from being added to an object.
+
+// Object.preventExtensions(obj);
+
+const objK = {
+  name: "Ali",
+};
+Object.preventExtensions(objK);
+objK.age = 25;
+console.log(objK); // { name: 'Ali' } age property is not added
+
+console.log(Object.isExtensible(objK)); // false // check if object is extensible
+
+// ----------------------- Object.preventExtensions() -------------------
+
+// ================================ Object Methods =============================

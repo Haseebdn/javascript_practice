@@ -8,11 +8,9 @@ let arr1 = [];
 
 let fruits = ["Apple", "Banana", "Mango"];
 
-//console.log(fruits); // ["Apple", "Banana", "Mango"]
-
 // Accessing array elements
 
-// We can get an element by its number in square brackets:
+// We can get an element by its index number in square brackets:
 console.log(fruits[0]); // Apple
 console.log(fruits[1]); // Banana
 console.log(fruits[2]); // Mango
@@ -22,265 +20,311 @@ console.log(fruits[2]); // Mango
 fruits[1] = "Orange";
 console.log(fruits[1]);
 
+//adding new element
+
+fruits[3] = "lemon";
+
+console.log(fruits); // ["Apple", "Banana", "Mango","lemon"]
+
 // ================================ Array Methods =================================
 
-// 1. push() - adds an element to the end of the array
+// 1.============== push() ====================
+
+//  adds an element to the end of the array
 
 //arr.push("elements",...);
-fruits.push("berry", "Strawberry");
-console.log(fruits); // ["Apple", "Orange", "Mango", "berry", "Strawberry"]
 
-// 2. pop() - removes the last element from the array
+fruits.push("berry", "Strawberry");
+console.log(fruits); // ["Apple", "Orange", "Mango","lemon", "berry", "Strawberry"]
+
+//  ============== push() ====================
+
+//2. ============== pop() ====================
+
+//  removes the last element from the array
 
 //arr.pop();
-fruits.pop();
-console.log(fruits); // ["Apple", "Orange", "Mango"]
 
-// 3. shift() - removes the first element from the array
+let vegetables = ["Carrot", "Spinach", "Broccoli", "Tomato", "Potato"];
+vegetables.pop();
+console.log(vegetables); // ["Carrot", "Spinach", "Broccoli", "Tomato"]
+
+//  ============== pop() ====================
+
+// 3. ============== shift() ====================
+
+// removes the first element from the array
 
 //arr.shift();
-fruits.shift();
-console.log(fruits); // ["Orange", "Mango"]
 
-// 4. unshift() - adds an element to the beginning of the array
+let birds = ["Sparrow", "Eagle", "Parrot", "Pigeon"];
+birds.shift();
+console.log(birds); // ["Eagle", "Parrot", "Pigeon"]
 
-//arr.unshift("elements",...);
-fruits.unshift("Pineapple");
-console.log(fruits); // ["Pineapple", "Orange", "Mango"]
+//  ============== shift() ====================
 
-// 5. Array.isArray()    - checks if the variable is an array
+// 4. ============== unshift() ====================
 
-//Array.isArray(arr);
-console.log(Array.isArray(fruits));
+//  adds element to the start of the array
 
-// 6. length - returns the number of elements in the array
+// arr.unshift("elements",...);
+
+let tools = ["Hammer", "Screwdriver", "Wrench"];
+tools.unshift("Drill", "Saw");
+console.log(tools); // ["Drill", "Saw", "Hammer", "Screwdriver", "Wrench"]
+
+//  ============== unshift() ====================
+
+// 5. ============== Array.isArray() ====================
+
+//  checks if the variable is an array
+
+// Array.isArray(arr);
+
+console.log(Array.isArray(fruits)); // true
+
+console.log(Array.isArray(tools)); // true
+
+//  ============== Array.isArray() ====================
+
+// 6. ============== length ====================
+
+//  returns the number of elements in the array
 
 //arr.length;
-console.log(fruits.length); // 3 length can be manually changed
-//fruits.length = 1;
-//console.log(fruits); // ["Pineapple"]
 
-// 7. Array toString() - converts an array to a string
+console.log(fruits.length); // 6
 
-//arr.toString();
-let strFruits = fruits.toString();
-console.log(strFruits); // Pineapple,Orange,Mango
+vegetables.length = 3;
+console.log(vegetables.length); // 3
 
-// 8. Array at() - returns the element at the specified index
+//  ============== length ====================
+
+// 7. ============= Array toString() =====================
+
+//  converts an array to a string
+
+// let newarr = arr.toString();
+
+let animals = ["Lion", "Tiger", "Elephant", "Giraffe"];
+let strAnimals = animals.toString();
+console.log(strAnimals); // Lion,Tiger,Elephant,Giraffe
+
+//  ============= Array toString() =====================
+
+// 8. ============ Array at() ====================
+
+// returns the element at the specified index
 
 //arr.at(index);
-console.log(fruits.at(2)); // Orange
 
-// 9. Array concat() - merges two or more arrays
+console.log(animals.at(2)); // Elephant
+console.log(animals.at(1)); // Tiger
 
-//arr.concat(arr2, arr3,...);
-let vegetables = ["Carrot", "Potato"];
-let food = vegetables.concat(fruits);
-console.log(food); // ["Carrot", "Potato", "Pineapple", "Orange", "Mango"]
+//  ============ Array at() ====================
 
-// 10. Array join() - joins all elements of an array into a string
+// 9. =============== Array concat() =================
 
-//arr.join("_,- etc");
-let joinedFruits = vegetables.join(" - ");
-console.log(joinedFruits); // Carrot - Potato
+//  merges two or more arrays
 
-// 11. Array slice() - returns a shallow copy of a portion of an array
+// let newarr = arr.concat(arr2, arr3,...);
 
-// arr.slice(start, end);
-let citrus = fruits.slice(1, 3);
-console.log(citrus); // ["Orange", "Mango"]
+let appliances = ["Refrigerator", "Microwave"];
+let allItems = appliances.concat(vegetables);
+console.log(allItems); // ["Refrigerator", "Microwave", "Carrot", "Spinach", "Broccoli",]
+
+// 10. ============== Array join() =================
+
+//  joins all elements of an array into a string
+
+// let newarr = arr.join("_,- etc");
+
+let joinedtools = tools.join(" _ ");
+console.log(joinedtools); // Drill _ Saw _ Hammer _ Screwdriver _ Wrench
+
+//  ============== Array join() =================
+
+// 11. ============= Array slice() =================
+
+//  returns a shallow copy of a portion of an array
+
+// let newarr = arr.slice(start, end);
+
+let electronics = ["TV", "Radio", "Laptop", "Tablet", "Smartphone"];
+let appliedElectronics = electronics.slice(1, 3);
+console.log(appliedElectronics); // ["Radio", "Laptop"]
+
 // The slice() method can take two arguments like slice(1, 3).
 // The method then selects elements from the start argument, and up to (but not including) the end argument.
+// If you omit the end argument, the slice() method will select all elements from the start argument to the end of the array.
 
-// 12. Array splice() - adds/removes items to/from an array
+//  ============= Array slice() =================
+
+// 12. ============== Array splice() ==================
+
+//  adds/removes items to/from an array
 
 // arr.splice(start, deleteCount, item1, item2,...);
-fruits.splice(1, 0, "Grapes", "Kiwi");
-console.log(fruits); // ["Pineapple", "Grapes", "Kiwi", "Orange", "Mango"]
+
+let unsortedNumbers = [30, 10, 40, 20, 50];
+console.log(unsortedNumbers); // [30, 10, 40, 20, 50]
+unsortedNumbers.splice(1, 2, 15, 25);
+console.log(unsortedNumbers); // [30, 15, 25, 20, 50]
+// unsortedNumbers.splice(0,2);
+// console.log(unsortedNumbers);
 
 // The first parameter (1) defines the position where new elements should be added (spliced in).
-// The second parameter (0) defines how many elements should be removed.
-// The rest of the parameters ("Grapes", "Kiwi") define the new elements to be added.
-// fruits.splice(1,1);
-// console.log(fruits);
+// The second parameter (2) defines how many elements should be removed.
+// The rest of the parameters (15, 25) define the new elements to be added.
 
-// 13. Array delete() - deletes an element from an array
+//  ============== Array splice() ==================
+
+// 13. ============ Array delete() ================
+
+//  deletes an element from an array
 
 // delete arr[index];
-delete fruits[1];
-console.log(fruits); // ["Pineapple", empty, "Kiwi", "Orange", "Mango"]
+
+let grades = ["A+", "B+", "C+", "D+", "E+"];
+delete grades[2];
+console.log(grades); // ["A+", "B+", empty, "D+", "E+"]
 
 // Note: Using delete leaves undefined holes in the array. To remove an element without leaving a hole, use splice() instead.
 
-// 14. Array toSpliced() - returns a new array with elements removed or replaced
+//  ============ Array delete() ================
 
-// arr.toSpliced(start, deleteCount, item1, item2,...);
-let newFruits = fruits.toSpliced(1, 2, "Watermelon");
-console.log(newFruits); // ["Pineapple", "Watermelon", "Orange", "Mango"]
-console.log(fruits); // ["Pineapple", empty, "Kiwi", "Orange", "Mango"]
+// 14. =============== Array toSpliced() =================
+
+//  returns a new array with elements removed or replaced
+
+// let newarr = arr.toSpliced(start, deleteCount, item1, item2,...);
+
+let colors = ["Red", "Green", "Blue", "Yellow", "Purple"];
+let newColors = colors.toSpliced(1, 2, "Orange", "Pink");
+console.log(newColors);
+console.log(colors);
+
 // The original array remains unchanged.
 
-// 15. Array copyWithin() - copies elements within an array
+// =============== Array toSpliced() =================
+
+// 15. ============== Array copyWithin() =================
+
+//  copies elements within an array
 
 // arr.copyWithin(target, start, end);
-fruits.copyWithin(1, 3, 5);
-console.log(fruits); // ["Pineapple", "Orange", "Mango", "Orange", "Mango"]
+
+let cities = ["New York", "Los Angeles", "Chicago", "Houston", "Phoenix"];
+cities.copyWithin(1, 3, 5);
+console.log(cities); // ["New York", "Houston", "Phoenix", "Houston", "Phoenix"]
+
 // The first parameter (1) is the target index to copy to.
 // The second parameter (3) is the start index to copy from.
 // The third parameter (5) is the end index to copy from (not included).
 
-// 16. Array flat() - flattens nested arrays
+//  ============== Array copyWithin() =================
 
-// arr.flat(depth);
-let nestedArr = [1, 2, [3, 4], [5, [6,[7] ]]];
+// 16. =============== Array flat() ==================
+
+//  flattens nested arrays
+
+// let newarr = arr.flat(depth);
+
+let nestedArr = [1, 2, [3, 4], [5, [6, [7]]]];
+console.log(nestedArr);
 let flatArr = nestedArr.flat(2);
 console.log(flatArr); // [1, 2, 3, 4, 5, 6, [7]]
+
 // The parameter (2) indicates the depth level to flatten.
 
-// 17. Array indexOf() - returns the index of the first occurrence of an element in an array
+//  =============== Array flat() ==================
 
-// arr.indexOf(element);
-let index = fruits.indexOf("Mango");
-console.log(index); // 4
+// 17.================= Array indexOf() =================
+
+//  returns the index of the first occurrence of an element in an array
+
+// let index =arr.indexOf(element);
+
+let index = cities.indexOf("Houston");
+console.log(index); // 1
+
 // If the element is not found, it returns -1.
 
-// 18. Array lastIndexOf() - returns the index of the last occurrence of an element in an array
+// ================= Array indexOf() =================
+
+// 18.================= Array lastIndexOf() =================
+
+//  returns the index of the last occurrence of an element in an array
 
 // arr.lastIndexOf(element);
-fruits.push("Orange");
-let lastIndex = fruits.lastIndexOf("Orange");
-console.log(lastIndex); // 5
+
+let lastIndex = cities.lastIndexOf("Houston");
+console.log(lastIndex); // 3
+
 // If the element is not found, it returns -1.
 
-// 19. Array Includes() - checks if an array contains a certain element
+// ================= Array lastIndexOf() =================
 
-// arr.includes(element);
-let hasMango = fruits.includes("Mango");
-console.log(hasMango); // true
-let hasBanana = fruits.includes("Banana");
-console.log(hasBanana); // false
+// 19.============== Array Includes() =================
+
+//  checks if an array contains a certain element
+
+// let newarr = arr.includes(element);
+
+let cars = ["Toyota", "Honda", "Ford", "BMW"];
+let hasBMW = cars.includes("BMW");
+console.log(hasBMW); // true
+let hasAudi = cars.includes("Audi");
+console.log(hasAudi); // false
+
 // returns true if the array contains the element, otherwise false.
 
-// 20. Array find() - returns the value of the first element that passes a test
+// ============== Array Includes() =================
 
-// arr.find(function(element) { ... });
-let numbers = [10, 20, 40, 45, 50];
-let foundNumber = numbers.find(function (num) {
-  return num > 35;
-});
-console.log(foundNumber); // 40
-// returns the first element that is greater than 35
-// If no elements pass the test, it returns undefined.
+// 20.================ Array reverse() =================
 
-// 21. Array findIndex() - returns the index of the first element that passes a test
-
-// arr.findIndex(function(element) { ... });
-let foundIndex = numbers.findIndex(function (num) {
-  return num > 35;
-});
-console.log(foundIndex); // 2
-// returns the index of the first element that is greater than 35
-// If no elements pass the test, it returns -1.
-
-// 22. Array filter() - returns a new array with elements that pass a test
-
-// arr.filter(function(element) { ... });
-let filteredNumbers = numbers.filter(function (num) {
-  return num > 25;
-});
-console.log(filteredNumbers); // [40, 45, 50]
-// returns a new array with elements greater than 25
-
-// 23. Array map() - creates a new array with the results of calling a function on every element
-
-// arr.map(function(element) { ... });
-let doubledNumbers = numbers.map(function (num) {
-  return num * 2;
-});
-console.log(doubledNumbers); // [20, 40, 80, 90, 100]
-// returns a new array with each element doubled
-
-// 24. Array reduce() - reduces the array to a single value by executing a reducer function
-
-// arr.reduce(function(accumulator, currentValue) { ... }, initialValue);
-let sum = numbers.reduce(function (total, num) {
-  return total + num;
-}, 0);
-console.log(sum); // 165
-// returns the sum of all elements in the array
-
-// 25. Array sort() - sorts the elements of an array
-
-// arr.sort(function(a, b) { ... });
-let unsortedNumbers = [50, 10, 40, 20, 30];
-unsortedNumbers.sort(function (a, b) {
-  //   b - a for descending order
-  return a - b;
-});
-console.log(unsortedNumbers); // [10, 20, 30, 40, 50]
-// sorts the array in ascending order
-// Note: By default, sort() converts elements to strings and sorts them lexicographically.
-// To sort numbers correctly, a compare function is needed.
-
-// 26. Array reverse() - reverses the order of the elements in an array
+//  reverses the order of the elements in an array
 
 // arr.reverse();
-unsortedNumbers.reverse();
-console.log(unsortedNumbers); // [50, 40, 30, 20, 10]
-// reverses the order of elements in the array  
 
-// 27. Array split() - splits a string into an array of substrings
+cars.reverse();
+console.log(cars); // ["BMW", "Ford", "Honda", "Toyota"]
 
-// arr.split("_,- etc");
+// reverses the order of elements in the array
+
+// ================= Array reverse() =================
+
+// 21.=============== Array split() ==================
+
+//  splits a string into an array of substrings
+
+// let newarr = arr.split("_,- etc");
+
 let sentence = "The quick brown fox jumps over the lazy dog";
 let words = sentence.split(" ");
 console.log(words); // ["The", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"]
+
 // splits the string at each space character and returns an array of substrings
 // If no separator is provided, it returns an array with the original string as the only element.
 
-// 28. Array forEach() - executes a provided function once for each array element
+// 22.================ Array fill() =================
 
-// arr.forEach(function(element, index) { ... });
-numbers.forEach(function (num, index) {
-  console.log("Index " + index + ": " + num);
-});
-// prints each element and its index in the array
-// Note: forEach() does not return a new array; it simply executes the function for each element.
-
-// 29. Array fill() - fills all the elements of an array with a static value
+//  fills all the elements of an array with a static value
 
 // arr.fill(value, start, end);
-let fillArr = new Array(5);
+
+let fillArr = [5, 10, 15, 20, 25];
 fillArr.fill(0);
 console.log(fillArr); // [0, 0, 0, 0, 0]
+
 // fills the entire array with the value 0
 // You can also specify a start and end index to fill a portion of the array.
-fillArr.fill(1, 1, 4);
-console.log(fillArr); // [0, 1, 1, 1, 0]
-// fills the array from index 1 to index 4 (not included) with the value 1
 
-// 30. Array every() - tests whether all elements in the array pass a test
+fillArr.fill(1, 0, 3);
+console.log(fillArr); // [1, 1, 1, 0, 0]
 
-// arr.every(function(element) { ... });
-let allAbove5 = numbers.every(function (num) {
-  return num > 5;
-});
-console.log(allAbove5); // true
-// returns true if all elements are greater than 5, otherwise false
-// If the array is empty, it returns true.
+// fills the array from index 0 to index 3 (not included) with the value 1
 
-// 31. Array some() - tests whether at least one element in the array passes a test
+// ================= Array fill() =================
 
-// arr.some(function(element) { ... });
-let someAbove45 = numbers.some(function (num) {
-  return num > 45;
-});
-console.log(someAbove45); // true
-// returns true if at least one element is greater than 45, otherwise false
-// If the array is empty, it returns false. 
-
-// ================================= End of Array Practices =================================    
-
-
-
-
+// ================================= End of Array Practices =================================
