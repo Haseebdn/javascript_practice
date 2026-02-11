@@ -115,13 +115,12 @@ if (a==user_name && b==password){
 // console.log(Math.floor(Math.random()*10)+1);
 
 // let units = prompt("Enter total consumed units");
+
 // let unitprice = 30;
-// let units7 = units * (7 / 100);
-// let units43 = units * (43 / 100);
-// let units50 = units * (50 / 100);
-// let bill7 = units7 * unitprice;
-// let bill43 = units43 * unitprice;
-// let bill50 = units50 * unitprice;
+
+// let bill7 = units * (7 / 100) * unitprice;
+// let bill43 = units * (43 / 100) * unitprice;
+// let bill50 = units * (50 / 100) * unitprice;
 // let baseprice = units * unitprice;
 
 // if (units < 0 || isNaN(units)) {
