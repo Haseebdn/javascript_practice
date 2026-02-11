@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Switch</title>
+  </head>
+  <body>
+    <script>
+      // ==========================================
+      // for <,>,<=,>= conditions switch can't be used directly and first converted to boolean
+      //   let age = +prompt("Enter your age");
+
+      //   switch (true) {
+      //     case age < 18:
+      //       alert("You are child");
+      //       break;
+
+      //     case age >= 18:
+      //       alert("You are eligible to vote");
+      //       break;
+
+      //     default:
+      //       alert("Invalid input");
+      //   }
+
+      // ==========================================
+
+      // ==========================================
+
+      //   log in using switch
+
+      //   const user_name = "haseeb";
+      //   const password = 12345;
+      //   let a = prompt("Enter user name");
+      //   let b = Number(prompt("Enter Password"));
+
+      //   switch (a) {
+      //     case user_name:
+      //       switch (b) {
+      //         case password:
+      //       }
+      //       alert("You are logged in");
+      //       break;
+      //     default:
+      //       alert("Please enter correct credentials");
+      //   }
+
+      // ==========================================
+
+      // ==========================================
+      //   let choices = ["rock", "paper", "scissor"];
+
+      //   let userinput = Number(prompt("Enter a number from 0 to 2"));
+      //   let computer_output = Math.floor(Math.random() * 3);
+
+      //   switch (true) {
+      //     case userinput < 0:
+      //     case userinput > 2:
+      //     case isNaN(userinput):
+      //       alert("Invalid input! Please enter 0, 1, or 2.");
+      //       break;
+
+      //     default:
+      //       alert("You choose: " + choices[userinput]);
+      //       alert("Computer choose: " + choices[computer_output]);
+
+      //       switch (true) {
+      //         case userinput === computer_output:
+      //           alert("It's a draw");
+      //           break;
+
+      //         case userinput === 0 && computer_output === 2:
+      //         case userinput === 1 && computer_output === 0:
+      //         case userinput === 2 && computer_output === 1:
+      //           alert("You win");
+      //           break;
+
+      //         default:
+      //           alert("You lose");
+      //       }
+      //   }
+
+      // ==========================================
+
+      // ==========================================
+      //   let a = Number(prompt("Enter your Income"));
+
+      //   let tax = a * (2.5 / 100);
+      //   alert("Your tax :" + tax);
+
+      //   let payedtax = Number(prompt("Enter Payed Tax"));
+      //   switch (true) {
+      //     case payedtax == tax:
+      //       alert("Your tax is fully paid");
+      //       break;
+      //     case payedtax < tax:
+      //       alert("Tax to be payed :" + (tax - payedtax));
+      //       break;
+      //     default:
+      //       alert("Invalid Input");
+      //       break;
+      //   }
+      // ==========================================
+
+      // ==========================================
+
+      let units = prompt("Enter total consumed units");
+
+      let unitprice = 30;
+      let bill7 = units * (7 / 100) * unitprice;
+      let bill43 = units * (43 / 100) * unitprice;
+      let bill50 = units * (50 / 100) * unitprice;
+      let baseprice = units * unitprice;
+
+      switch (true) {
+        case units < 0:
+        case isNaN(units):
+          alert("Invalid Input");
+          break;
+
+        default:
+          alert("Your base electricity bill : " + baseprice + " Rs");
+          let tax = bill43 * (3 / 100) + bill50 * (5 / 100);
+          alert("Total tax on your bill : " + tax.toFixed(2) + " Rs");
+          let bill = bill7 + bill43 + bill50 + tax;
+          alert("Your total bill : " + bill + " Rs");
+
+          break;
+      }
+
+      // ==========================================
+    </script>
+  </body>
+</html>

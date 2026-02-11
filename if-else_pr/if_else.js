@@ -50,17 +50,22 @@ alert("You are adult");
     alert("You are not registered");
 }
 */
-
-/*const user_name= "haseeb";
+// =========================================
+/*
+const user_name= "haseeb";
 const password="12345";
 let a=prompt("Enter user name");
 let b=Number(prompt("Enter Password"));
 
 if (a==user_name && b==password){
   alert("you are logged in");
-} else{
-   alert("Sorry! Your attempt is unsuccessful")
-}*/
+  } else{
+    alert("Sorry! Your attempt is unsuccessful")
+}
+*/
+// =========================================
+
+// =========================================
 
 // let choices = ["rock", "paper", "scissor"];
 
@@ -70,8 +75,8 @@ if (a==user_name && b==password){
 // if (userinput < 0 || userinput > 2 || isNaN(userinput)) {
 //   alert("Invalid input! Please enter 0, 1, or 2.");
 // } else {
-//   alert("You chose: " + choices[userinput]);
-//   alert("Computer chose: " + choices[computer_output]);
+//   alert("You choose: " + choices[userinput]);
+//   alert("Computer choose: " + choices[computer_output]);
 
 //   if (userinput === computer_output) {
 //     alert("It's a draw");
@@ -86,6 +91,9 @@ if (a==user_name && b==password){
 //   }
 // }
 
+// =========================================
+
+// =========================================
 // let a=Number(prompt("Enter your Income"));
 
 // let tax= a*(2.5/100);
@@ -100,6 +108,9 @@ if (a==user_name && b==password){
 // }else{
 //   alert("Invalid Input");
 // }
+// =========================================
+
+// =========================================
 
 // console.log(Math.floor(Math.random()*10)+1);
 
@@ -113,13 +124,13 @@ if (a==user_name && b==password){
 // let bill50 = units50 * unitprice;
 // let baseprice = units * unitprice;
 
-if (units < 0 || isNaN(units)) {
-  alert("Invalid Input");
-} else {
-  alert("Your base electricity bill : " + baseprice + " Rs");
-  let tax = bill43 * (3 / 100) + bill50 * (5 / 100);
-  alert("Total tax on your bill : " + tax.toFixed(2) + " Rs");
-  let bill = bill7 + bill43 + bill50 + tax;
-  alert("Your total bill : " + bill + " Rs");
-}
-
+// if (units < 0 || isNaN(units)) {
+//   alert("Invalid Input");
+// } else {
+//   alert("Your base electricity bill : " + baseprice + " Rs");
+//   let tax = bill43 * (3 / 100) + bill50 * (5 / 100);
+//   alert("Total tax on your bill : " + tax.toFixed(2) + " Rs");
+//   let bill = bill7 + bill43 + bill50 + tax;
+//   alert("Your total bill : " + bill + " Rs");
+// }
+// =========================================

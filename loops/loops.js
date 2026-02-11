@@ -74,7 +74,6 @@ do {
 //     console.log(i);
 // }
 
-
 // ==================== Continue and break statements in loops
 
 // ======================= break
@@ -107,3 +106,33 @@ do {
 //   alert(i); // 1, then 3, 5, 7, 9
 // }
 
+// No break/continue to the right side of ‘?’
+
+
+
+// let num = Math.floor(Math.random() * 100) + 1;
+// console.log(num);
+
+// let i = 1;
+// do {
+//   let n = +prompt("Enter Your Number from 1 to 100");
+
+//   if (n > num) {
+//     alert("Your number is greater than original number");
+//   } else if (n < num) {
+//     alert("Your number is less than original number");
+//   } else if (n == num) {
+//     alert("You have guessed the number");
+//     break;
+//   }
+
+//   let retry = 10 - i;
+
+//   if (retry >= 1 && retry < 10) {
+//     alert("Your remaining tries are : " + retry);
+//   } else {
+//     alert("Your available tries are finished");
+//   }
+
+//   i++;
+// } while (i <= 10);
