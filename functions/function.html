@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Functions</title>
+  </head>
+  <body>
+    <h1>Functions</h1>
+    <script>
+      // A function in JavaScript is a reusable block of code that performs a task when it is called.
+
+      // ============== Why we use functions?
+      // To reuse code
+      // To make code organized and readable
+      // To perform a task when needed
+
+      // ============== Syntax
+
+      //   function greet() {
+      //     console.log("Hello!");
+      //   }
+      //   greet();
+
+      // ============== function with parameters
+
+      //   function sub(a,b){
+      //     console.log(a-b);
+      //   }
+      //   sub(4,1);
+
+      // ================ Function with Return
+
+      // function add(a,b,c){
+      //     return a+b+c;
+      // }
+      // let result = add(1,2,3);
+      // console.log(result);
+
+      // ======================================== Arrow Functions
+
+      // Arrow functions are a shorter and modern way to write functions in JavaScript.
+
+      // Syntax
+
+      let add = (a, b) => {
+        return a + b;
+      };
+      console.log(add(15, 30));
+      // ================== Advantages
+      // Makes code shorter and easier to read.
+      // No Need to Write return (in single line)   // const square = n => n * n;
+      // Arrow functions do not create their own this. They use this from the surrounding scope. This helps avoid problems in callbacks.
+      // Commonly used in:
+
+      // map();
+      // filter();
+      // forEach();
+      // setTimeout();
+    </script>
+  </body>
+</html>

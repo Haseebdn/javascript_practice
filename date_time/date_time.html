@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Date And Time</title>
+  </head>
+  <body>
+    <h1>Date And Time</h1>
+    <script>
+      //================ Syntax
+
+      //   let now = new Date();
+      //   alert(now);            // shows current date/time
+
+      // ====================== Methods
+
+      //   let nowdate = new Date();
+
+      //   console.log(nowdate.toString());  //Sat Feb 14 2026 14:01:29 GMT+0500 (Pakistan Standard Time)
+
+      //   console.log(nowdate.toISOString()); // 2026-02-14T09:01:29.715Z
+
+      //   console.log(nowdate.toJSON()); // 2026-02-14T09:01:29.715Z
+
+      //   console.log(nowdate.toLocaleDateString()); // 14/02/2026
+
+      //   console.log(nowdate.toLocaleString()); // 14/02/2026, 14:01:29
+
+      //   console.log(nowdate.toLocaleTimeString()); // 14:01:29
+
+      //   console.log(nowdate.toTimeString()); // 14:01:29 GMT+0500 (Pakistan Standard Time)
+
+      //   console.log(nowdate.toUTCString()); // Sat, 14 Feb 2026 09:01:29 GMT
+
+      //   console.log(nowdate.getTimezoneOffset()); // -300
+
+      // ==================== timestamp
+
+      //   let nww = new Date(24*3600*1000);      // timestamp(Entered in miliseconds) measures from 01.01.1970 UTC+0
+      //   console.log(nww);
+
+      //   ======================= timestring
+
+      // let date = new Date("2017-01-26,7:30:00");
+      // console.log(date);
+      // if time is not set, so it's assumed to be midnight GMT and
+      // is adjusted according to the timezone the code is run in
+
+      // =========================== precision
+
+      //   new Date(year, month, date, hours, minutes, seconds, ms)
+
+      // let thisdate = new Date(2026, 2, 15, 17, 45, 30, 15);
+      // console.log(thisdate);
+
+      //   ========================== Access date components
+
+      // year   getFullYear()
+      // console.log(thisdate.getFullYear());
+
+      // month  .getMonth()
+      // console.log(thisdate.getMonth());
+
+      // day    .getDate()--- getDay()
+
+      //   console.log(thisdate.getDate());    // its gives you date 1 to 31
+      //   console.log(thisdate.getDay());     // it gives you day monday,sunday
+
+      // such as getHours(), getMinutes(), getSeconds(), getMilliseconds(), getTime(), getTimezoneOffset()
+
+      //   All the methods above return the components relative to the local time zone.
+
+      // on for the time zone UTC+0 Just insert the "UTC" right after "get"
+
+      // =============================== Setting date components
+
+      // The following methods allow to set date/time components:
+
+      // setFullYear(year, [month], [date])
+      // setMonth(month, [date])
+      // setDate(date)
+      // setHours(hour, [min], [sec], [ms])
+      // setMinutes(min, [sec], [ms])
+      // setSeconds(sec, [ms])
+      // setMilliseconds(ms)
+      // setTime(milliseconds) (sets the whole date by milliseconds since 01.01.1970 UTC)
+      // Every one of them except setTime() has a UTC-variant, for instance: setUTCHours().
+
+      // ================================ Auto Correction
+
+      // set out-of-range values, and it will auto-adjust itself
+
+      // let date = new Date(2013, 0, 32);      // 32 Jan 2013 ?!?
+      // alert(date);            // ...is 1st Feb 2013!
+
+      // we need to increase the date “28 Feb 2016” by 2 days. It may be “2 Mar” or “1 Mar” in case of a leap-year. We don’t need to think about it. Just add 2 days.
+
+      // let date = new Date(2016, 1, 28);
+      // date.setDate(date.getDate() + 2);
+
+      // alert( date );         // 1 Mar 2016
+
+      // to get the date after the given period of time. For instance, let’s get the date for “60 hours after now”:
+
+      // let date = new Date();
+      // date.setHours(date.getHours() + 60);
+
+      // console.log(date);
+
+      // ================================= Date to number, date diff
+
+      //  When a Date object is converted to number, it becomes the timestamp same as date.getTime():
+
+      // let date = new Date();
+      // alert(+date); // the number of milliseconds, same as date.getTime()
+
+      //  dates can be subtracted, the result is their difference in ms.
+
+      // let start = new Date();            // start measuring time
+
+      // // do the job
+      // for (let i = 0; i < 100000; i++) {
+      //   let doSomething = i * i * i;
+      // }
+
+      // let end = new Date("2026-2-15,24:00");               // end measuring time
+
+      // alert( `The loop took ${end - start} ms` );
+
+      // ================================== Date.now()
+
+      // There’s a special method Date.now() that returns the current timestamp.
+
+      // It is semantically equivalent to new Date().getTime(), but it doesn’t create an intermediate Date object. So it’s faster and doesn’t put pressure on garbage collection.
+
+      // let start = Date.now(); // milliseconds count from 1 Jan 1970
+
+      // // do the job
+      // for (let i = 0; i < 100000; i++) {
+      //   let doSomething = i * i * i;
+      // }
+
+      // let end = Date.now(); // done
+
+      // alert(`The loop took ${end - start} ms`); // subtract numbers, not dates
+
+      //  ================================ benchmarking
+      
+      // function diffSubtract(date1, date2) {
+      //   return date2 - date1;
+      // }
+      // let date1 = new Date(2026, 15, 2);
+      // let date2 = new Date(2026, 16, 2);
+      // console.log(diffSubtract(date1, date2));
+      // // or
+      // function diffGetTime(date3, date4) {
+      //   return date4.getTime() - date3.getTime();
+      // }
+      // let date3 = new Date(2026, 15, 2);
+      // let date4 = new Date(2026, 16, 2);
+      //  console.log(diffGetTime(date3, date4));
+
+      // ========================== Date.parse(str)
+
+      // can read a date from a string
+      // let ms = Date.parse("2012-01-26T13:51:50.417-07:00");
+
+      // alert(ms); // 1327611110417  (timestamp)
+
+      // create a new Date object from the timestamp
+      // let date = new Date(Date.parse("2012-01-26T13:51:50.417-07:00"));
+      // alert(date);
+    </script>
+  </body>
+</html>
