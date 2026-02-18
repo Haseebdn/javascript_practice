@@ -1,0 +1,15 @@
+#container {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    height: 100px;
+}
+
+.box{
+    background-color: black;
+    color: white;
+    width: 33%;
+    text-align: center;
+    
+}
