@@ -59,5 +59,28 @@
 
 // attributediv.style.background ="blue";
 
+//============== elem.matches(css)
 
+// to check if elem matches the given CSS selector.
+
+// let id = document.getElementById("container");
+
+// console.log(id.matches(".me"));   // returns true if css selector matches otherwise false
+
+// ============ elem.closest(css)
+
+// to look for the nearest ancestor that matches the given CSS-selector. The elem itself is also checked.
+
+// let box = document.querySelector(".box");
+
+// console.log(box.closest(".me"));
+
+// ============ elemA.contains(elemB)
+
+// to check an element inside other element
+
+// let id = document.getElementById("container");
+// let box = document.querySelector(".box");
+
+// console.log(id.contains(box));      //  returns true if it contains element otherwise false
 
