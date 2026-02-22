@@ -47,3 +47,25 @@
 
 //  div1.removeAttribute("check");     // check attribute removed
 // console.log(document.body);
+
+// ======================= elem.attributes
+
+// a collection of all attributes
+
+// let div1 = document.querySelector("#container");
+
+// console.log(div1.attributes);
+
+// =========================================== data set(data-*)
+
+// custom HTML attributes used to store extra information inside HTML elements.
+
+// let div1 = document.querySelector("#container");
+
+// console.log(div1.dataset);     // return collection of dataset
+// console.log(div1.dataset.myInfo);       // returns value of dataset 
+
+
+
+
+
