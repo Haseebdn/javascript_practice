@@ -167,3 +167,30 @@
 
 // let div = document.body.querySelector("#container");
 // setTimeout(() => div.remove(), 1000);
+
+// ===================================== Cloning nodes
+
+// ========================== elem.cloneNode(true)
+
+// creates a “deep” clone of the element – with all attributes and subelements
+
+// let div = document.body.querySelector("#container");
+// let div2 = div.cloneNode(true);
+// div.after(div2);
+// ========================== elem.cloneNode(false)
+
+// the clone is made without child elements
+
+// let div = document.body.querySelector("#container");
+// let div2 = div.cloneNode(false);
+// div.after(div2);
+
+// ===================================== document.write
+
+// ancient method to add html
+// To append HTML to the page before it has finished loading 
+
+// document.write('<b>Hello from JS</b>');
+
+// ===================================== DocumentFragment()
+
