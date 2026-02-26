@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./style.css" />
+  <title>Forms</title>
+</head>
+
+<body>
+  <form id="user_info" name="info">
+    <fieldset name="userFields" style="width: 50%;">
+      <legend> User Info</legend>
+    <label for="uname">User Name:</label><br>
+    <input type="text" id="uname" name="uname"><br><br>
+
+    <label for="uemail">Email:</label><br>
+    <input type="email" id="uemail" name="uemail"><br><br>
+
+    <label for="upswd">Password:</label><br>
+    <input type="password" id="upswd" name="upswd"><br><br>
+
+    <label>Select Gender:</label><br>
+
+    <input type="radio" id="male" name="gender" value="male" >
+    <label for="male">Male</label><br>
+
+    <input type="radio" id="female" name="gender" value="female">
+    <label for="female">Female</label><br>
+
+    <input type="radio" id="others" name="gender" value="others">
+    <label for="others">Others</label>
+    </fieldset>
+  </form>
+  <script src="./script.js"></script>
+
+</body>
+
+</html>
