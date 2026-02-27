@@ -9,30 +9,45 @@
 </head>
 
 <body>
-  <form id="user_info" name="info">
+  <form id="userinfo" name="info">
     <fieldset name="userFields" style="width: 50%;">
       <legend> User Info</legend>
-    <label for="uname">User Name:</label><br>
-    <input type="text" id="uname" name="uname"><br><br>
+      <label for="uname">User Name:</label><br>
+      <input type="text" id="uname" name="uname"><br><br>
 
-    <label for="uemail">Email:</label><br>
-    <input type="email" id="uemail" name="uemail"><br><br>
+      <label for="uemail">Email:</label><br>
+      <input type="email" id="uemail" name="uemail"><br><br>
 
-    <label for="upswd">Password:</label><br>
-    <input type="password" id="upswd" name="upswd"><br><br>
+      <label for="upswd">Password:</label><br>
+      <input type="password" id="upswd" name="upswd"><br><br>
+      <button type="button" id="btn">Show</button> <br> <br>
 
-    <label>Select Gender:</label><br>
+      <label>Select Gender:</label><br>
 
-    <input type="radio" id="male" name="gender" value="male" >
-    <label for="male">Male</label><br>
+      <input type="radio" id="male" name="gender" value="male">
+      <label for="male">Male</label><br>
 
-    <input type="radio" id="female" name="gender" value="female">
-    <label for="female">Female</label><br>
+      <input type="radio" id="female" name="gender" value="female">
+      <label for="female">Female</label><br>
 
-    <input type="radio" id="others" name="gender" value="others">
-    <label for="others">Others</label>
+      <input type="radio" id="others" name="gender" value="others">
+      <label for="others">Others</label>
     </fieldset>
   </form>
+  <br>
+
+  <!-- <select id="select">
+    <option value="apple">Apple</option>
+    <option value="pear">Pear</option>
+    <option value="banana">Banana</option>
+  </select> -->
+
+  <select id="genres">
+    <option value="rock">Rock</option>
+    <option value="blues" selected>Blues</option>
+  </select>
+
+
   <script src="./script.js"></script>
 
 </body>
