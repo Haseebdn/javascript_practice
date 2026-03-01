@@ -106,5 +106,30 @@
 
 // ================================== Forms: event and method submit
 
-// form.submit()
-  
+
+// The first – to click <input type="submit"> or <input type="image">.
+// The second – press Enter on an input field
+
+// submit.addEventListener('click', function (event) {
+//     alert('submitt');
+//     event.preventDefault();
+// })
+
+// When a form is sent using Enter on an input field, a click event triggers on the <input type="submit">
+
+// =================== form.submit()
+
+// Use it when:
+// You already validated everything manually
+// You want to force submission
+// You don’t want submit event to run again
+
+// If the developer is manually calling submit(), they already handled everything
+
+// form.addEventListener('submit', function (event) {
+//     event.preventDefault();
+//     form.submit();
+//     if (form.checkValidity()) {
+//          // manual submit
+//     }
+// });

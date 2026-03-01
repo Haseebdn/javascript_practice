@@ -10,7 +10,7 @@
 
 <body>
     <!-- <form onfocus="this.className='focused'">   // we can’t put onfocus on the <form> to highlight it, like this -->
-    <form id="userinfo" name="info">
+    <form id="userinfo" name="info" novalidate>
         <fieldset name="userFields" style="width: 50%;">
             <legend> User Info</legend>
             <label for="uname">User Name:</label><br>
@@ -33,7 +33,8 @@
             <label for="female">Female</label><br>
 
             <input type="radio" id="others" name="gender" value="others">
-            <label for="others">Others</label>
+            <label for="others">Others</label><br><br>
+            <input type="submit" id="submit" name="sub" class="sud">
         </fieldset><br>
         <input type="text" id="inputt"> oninput: <span id="result"></span>
         <!-- <input type="text" id="inputt">  -->
