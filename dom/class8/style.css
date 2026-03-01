@@ -1,0 +1,13 @@
+/* .invalid {
+  border-color: red;
+} */
+
+#error {
+  color: red
+}
+
+.me{
+  background-color: red;
+}
+
+.focused { outline: 3px solid red; }

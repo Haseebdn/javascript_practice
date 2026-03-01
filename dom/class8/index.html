@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Forms</title>
+</head>
+
+<body>
+    <!-- <form onfocus="this.className='focused'">   // we can’t put onfocus on the <form> to highlight it, like this -->
+    <form id="userinfo" name="info">
+        <fieldset name="userFields" style="width: 50%;">
+            <legend> User Info</legend>
+            <label for="uname">User Name:</label><br>
+            <input type="text" id="uname" name="uname"><br><br>
+
+            <label for="uemail">Email:</label><br>
+            <input type="email" id="uemail" name="uemail">
+            <div id="error"></div>
+            <br><br>
+            <label for="upswd">Password:</label><br>
+            <input type="password" id="upswd" name="upswd"><br><br>
+            <button type="button" class="bttn" id="btn">Show</button> <br> <br>
+
+            <label>Select Gender:</label><br>
+
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="male">Male</label><br>
+
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">Female</label><br>
+
+            <input type="radio" id="others" name="gender" value="others">
+            <label for="others">Others</label>
+        </fieldset><br>
+        <input type="text" id="inputt"> oninput: <span id="result"></span>
+        <!-- <input type="text" id="inputt">  -->
+    </form>
+    <br>
+
+    <!-- tabindex attribute is used to add focus on other elements such as <div>, <span>, <table>  The method elem.focus() doesn’t work on them, and focus/blur events are never triggered.-->
+
+    <!-- <ul tabindex="1" id="select">
+
+        <li tabindex="2" value="apple">Apple</li>
+        <li tabindex="0" value="pear">Pear</li>
+        <li tabindex="3" value="banana">Banana</li>
+    </ul>
+    <br> -->
+    <select id="genres">
+        <option value="rock">Rock</option>
+        <option value="blues" selected>Blues</option>
+    </select>
+
+
+    <script src="./script.js"></script>
+
+</body>
+
+</html>

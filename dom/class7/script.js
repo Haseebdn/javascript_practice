@@ -38,21 +38,39 @@
 
 // add new option to select
 
-// let newOption = new Option("Classic", "classic",false,false);
-//   genres.append(newOption);
+let newOption = new Option("Classic", "classic",false,false);
+  genres.append(newOption);
 
 
 
+// let upassword = document.querySelector("#upswd");
+// let btn = document.querySelector("#btn");
+
+// btn.addEventListener("click", function() {
+
+//     if (upassword.type === "password") {
+//         upassword.type = "text";
+//         btn.textContent = "Hide";
+//      } else {
+//         upassword.type = "password";
+//         btn.textContent = "Show";
+//     }
+// });
+
+
+let form = document.querySelector('#userinfo');
 let upassword = document.querySelector("#upswd");
-let btn = document.querySelector("#btn");
 
-btn.addEventListener("click", function() {
+form.addEventListener('click', function (event) {
+    let target = event.target;
 
-    if (upassword.type === "password") {
-        upassword.type = "text";
-        btn.textContent = "Hide";
-    } else {
-        upassword.type = "password";
-        btn.textContent = "Show";
+    if (target.classList.contains('bttn')) {
+        if (upassword.type === "password") {
+            upassword.type = "text";
+            target.textContent = "Hide";
+        } else {
+            upassword.type = "password";
+            target.textContent = "Show";
+        }
     }
 });
