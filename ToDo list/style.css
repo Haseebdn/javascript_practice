@@ -1,0 +1,78 @@
+  #formcontainer,
+  #listcontainer {
+    width: 40%;
+    background-color: #85CAE2;
+  }
+
+  .inputdiv {
+    position: relative;
+    width: 100%;
+  }
+
+  .inputdiv button {
+    position: absolute;
+    right: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50px;
+    width: 120px;
+  }
+
+  #taskVal {
+    background-color: rgb(237, 237, 218);
+    border: 2px solid rgb(237, 237, 218);
+    outline: none;
+    border-radius: 50px;
+    padding: 5px 15px;
+    width: 100%;
+  }
+
+  .check-btn {
+    color: white;
+    width: 22px;
+    height: 22px;
+    border: 2px solid #0d6efd;
+    border-radius: 30%;
+    background: transparent;
+    cursor: pointer;
+    position: relative;
+    transition: 0.3s;
+  }
+
+  .check-btn.checked {
+    background-color: #c5dcff;
+  }
+
+  .check-btn.checked::after {
+    content: "✔";
+    color: rgb(0, 0, 0);
+    font-size: 14px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -55%);
+  }
+
+  .task-text.completed {
+    text-decoration: line-through;
+    color: gray;
+  }
+
+  .taskItem {
+    background-color: rgb(237, 237, 218);
+  }
+
+  #add {
+    color: white;
+    font-weight: bold;
+  }
+
+  .delete {
+    border-radius: 100% !important;
+    border: none;
+    outline: none;
+  }
+
+  .delete:hover {
+    color: red;
+  }
