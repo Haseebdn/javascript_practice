@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+    <link rel="stylesheet" href="./bootstrap.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <title>Student Crud</title>
+    <script src="https://code.jquery.com/jquery-4.0.0.slim.min.js"
+        integrity="sha256-8DGpv13HIm+5iDNWw1XqxgFB4mj+yOKFNb+tHBZOowc=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <h1 id="mainHead">Student Crud</h1>
+
+    <div class="containerDiv">
+
+        <div class="formDiv">
+            <form id="infoForm">
+                <div class="row">
+                    <div class="col"><input type="text" class="info" name="studentName"
+                            placeholder="Enter Student Name"></div>
+                    <div class="col"><input type="number" class="info" name="studentage" placeholder="Enter Age"></div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col"><input type="number" class="info" name="studentMarks" placeholder="Enter Marks">
+                    </div>
+
+                    <div class="col "><button id="saveBtn" class="btn  btn-primary ">Save</button></div>
+                </div>
+                <br><br>
+
+            </form>
+        </div>
+
+        <div class="tableDiv">
+            <div class="row tablerow">
+                <div class="col text-center fs-5 fw-bold">Name</div>
+                <div class="col text-center fs-5 fw-bold">Age</div>
+                <div class="col text-center fs-5 fw-bold">Marks</div>
+                <div class="col text-center fs-5 fw-bold">Percentage</div>
+            </div>
+            <div class="row  mt-3 bg-info d-flex align-items-center rounded-2 p-1">
+                <div class="col-2  text-center fw-bold">Ali</div>
+                <div class="col-2  text-center fw-bold">22</div>
+                <div class="col-2  text-center fw-bold">1050</div>
+                <div class="col-3  text-center fw-bold">90%</div>
+                <div class="col ">
+                    <button class="BTN clone"><i class="fa-regular fa-clone "></i></button>
+                </div>
+                <div class="col">
+                    <button class="BTN edit"><i class="fa-solid fa-pen"></i></button>
+                </div>
+                <div class="col BTN">
+                    <button class="BTN delete"><i class="fa-solid fa-trash"></i></button>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    
+    <script src="./bootstrap.js"></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>
