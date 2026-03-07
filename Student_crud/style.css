@@ -11,53 +11,71 @@
     font-family: 'Times New Roman', Times, serif;
 }
 
-.containerDiv{
-margin: 50px;
-display: flex;
-justify-content:space-between;
+.containerDiv {
+    height: 450px;
+    margin: 50px;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
 
 }
 
-.formDiv{
-width: 40%;
+.formDiv {
+    width: 40%;
+    position: sticky;
+    top: 0;
+    background: white;
+    padding: 10px;
+    z-index: 10;
 }
 
-.info{
+.info {
     width: 100%;
     border-radius: 6px;
     font-size: 16px;
     padding: 5px 10px;
-    border:2px solid rgb(133, 122, 122);
+    border: 2px solid rgb(133, 122, 122);
 }
 
 
-.tableDiv{
-width: 55%;
+.tableDiv {
+    height: 100%;
+    margin-top: 10px;
+    width: 55%;
+    overflow-y: auto;
 }
 
-.tablerow{
-    width: 100%;
+.tablerow {
+    overflow: hidden;
+    position: sticky;
+    top: 0;
     background-color: rgb(182, 182, 182);
+    z-index: 10;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
 }
 
-.datarow{
+
+.datarow {
     width: 100%;
+    margin-left: 0px;
+
 }
 
-.BTN{
+.BTN {
     border: none;
     outline: none;
-    background-color:transparent;
+    background-color: transparent;
 }
 
-.clone:hover{
+.clone:hover {
     color: rgb(255, 255, 255);
 }
 
-.edit:hover{
+.edit:hover {
     color: rgb(255, 255, 255);
 }
 
-.delete:hover{
+.delete:hover {
     color: red;
 }

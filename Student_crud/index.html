@@ -13,6 +13,7 @@
 </head>
 
 <body>
+
     <h1 id="mainHead">Student Crud</h1>
 
     <div class="containerDiv">
@@ -20,6 +21,7 @@
         <div class="formDiv">
             <form id="infoForm">
                 <div class="row">
+                    <input type="hidden" id="editIndex">
                     <div class="col"><input type="text" class="info" name="studentName"
                             placeholder="Enter Student Name"></div>
                     <div class="col"><input type="number" class="info" name="studentage" placeholder="Enter Age"></div>
@@ -28,14 +30,14 @@
                     <div class="col"><input type="number" class="info" name="studentMarks" placeholder="Enter Marks">
                     </div>
 
-                    <div class="col "><button id="saveBtn" class="btn  btn-primary ">Save</button></div>
+                    <div class="col "><button id="saveBtn" class="btn  btn-primary" type="submit">Save</button></div>
                 </div>
                 <br><br>
 
             </form>
         </div>
 
-        <div class="tableDiv">
+        <div class="tableDiv rounded-2">
             <div class="row tablerow py-1 rounded-2">
                 <div class="col-2 text-center fs-5 fw-bold">Name</div>
                 <div class="col-2 text-center fs-5 fw-bold">Age</div>
@@ -46,10 +48,10 @@
                 <div class="col text-center fs-5 fw-bold"></div>
             </div>
             <div class="row datarow  mt-2 bg-info d-flex align-items-center rounded-2 py-2 dataRow">
-                <div class="col-2  text-center fw-bold">Ahmad</div>
-                <div class="col-2  text-center fw-bold">22</div>
-                <div class="col-2  text-center fw-bold">1050</div>
-                <div class="col-3  text-center fw-bold">90%</div>
+                <div class="col-2  text-center fw-bold"></div>
+                <div class="col-2  text-center fw-bold"></div>
+                <div class="col-2  text-center fw-bold"></div>
+                <div class="col-3  text-center fw-bold"></div>
                 <div class="col ">
                     <button class="BTN clone"><i class="fa-regular fa-clone "></i></button>
                 </div>
@@ -66,7 +68,7 @@
     </div>
 
 
-    
+
     <script src="./bootstrap.js"></script>
     <script src="./script.js"></script>
 </body>
