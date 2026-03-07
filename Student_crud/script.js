@@ -1,5 +1,5 @@
 let students = JSON.parse(localStorage.getItem("students")) || [];
-
+rendertable();
 
 $('#infoForm').on("submit", function (event) {
 
@@ -84,3 +84,28 @@ function rendertable() {
     });
 
 }
+
+
+$(document).on('click','.delete',function(e){
+let index = $(this).data('index');
+students.splice(index,1);
+localStorage.setItem("students", JSON.stringify(students));
+
+rendertable();
+});
+
+$(document).on('click','.edit',function(){
+    let index =$(this).data('index');
+    let studentedit =students[index];
+
+    $('#name').val(studentedit.stuName);
+    $("input[name='studentage']").val(studentedit.stuAge);
+    $("input[name='studentMarks']").val(studentedit.stuMarks);
+
+    $('#editIndex').val(index);
+   $("#saveBtn").text("Update");
+
+})
+
+
+
