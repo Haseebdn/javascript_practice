@@ -1,5 +1,6 @@
 let students = JSON.parse(localStorage.getItem("students")) || [];
 
+
 $('#infoForm').on("submit", function (event) {
 
     event.preventDefault();
@@ -38,6 +39,48 @@ $('#infoForm').on("submit", function (event) {
 
     localStorage.setItem("students", JSON.stringify(students));
 
+    rendertable();
+
     this.reset()
 });
 
+function rendertable() {
+
+    $('.datarow').remove();
+
+    students.forEach((s, index) => {
+
+        let row = `
+        <div class="row datarow mt-2 bg-info d-flex align-items-center rounded-2 py-2">
+
+            <div class="col-2 text-center fw-bold">${s.stuName}</div>
+            <div class="col-2 text-center fw-bold">${s.stuAge}</div>
+            <div class="col-2 text-center fw-bold">${s.stuMarks}</div>
+            <div class="col-3 text-center fw-bold">${s.stuPercentage}</div>
+
+            <div class="col">
+                <button class="BTN clone" data-index="${index}">
+                <i class="fa-regular fa-clone"></i>
+                </button>
+            </div>
+
+            <div class="col">
+                <button class="BTN edit" data-index="${index}">
+                <i class="fa-solid fa-pen"></i>
+                </button>
+            </div>
+
+            <div class="col">
+                <button class="BTN delete" data-index="${index}">
+                <i class="fa-solid fa-trash"></i>
+                </button>
+            </div>
+
+        </div>
+        `;
+
+        $(".tableDiv").append(row);
+
+    });
+
+}
