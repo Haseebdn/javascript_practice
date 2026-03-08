@@ -12,43 +12,72 @@ $('#infoForm').on("submit", function (event) {
     let percentage = (marks / 1100) * 100;
 
     if (sname === "" || age === "" || marks === "") {
-        alert("Enter Valid Info");
+        Swal.fire("Error", "Enter Valid Info", "error");
         return;
     }
 
-
     const student = {
-
         stuName: sname,
         stuAge: age,
         stuMarks: marks,
         stuPercentage: percentage.toFixed(2) + "%"
-
     };
-
-
 
     let editindex = $('#editIndex').val().trim();
 
     if (editindex !== "") {
 
-        students[editindex] = student;
+        Swal.fire({
+            title: "Update Student?",
+            icon: "question",
+            showCancelButton: true,
+            confirmButtonText: "Yes, Update"
+        }).then((result) => {
 
-        $("#saveBtn").text("Save");
+            if (result.isConfirmed) {
 
-        $("#editIndex").val("");
+                students[editindex] = student;
+
+                localStorage.setItem("students", JSON.stringify(students));
+
+                $("#saveBtn").text("Save");
+                $("#editIndex").val("");
+
+                rendertable();
+
+                $('#infoForm')[0].reset();
+
+                Swal.fire("Updated!", "Student updated successfully", "success");
+            }
+
+        });
 
     } else {
+
         students.push(student);
+
+        localStorage.setItem("students", JSON.stringify(students));
+
+        rendertable();
+
+        this.reset();
+
+        const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true
+        });
+
+        Toast.fire({
+            icon: "success",
+            title: "Student Added Successfully"
+        });
     }
 
-    localStorage.setItem("students", JSON.stringify(students));
-
-    rendertable();
-
-    this.reset();
-
 });
+
 
 function rendertable() {
 
@@ -92,13 +121,31 @@ function rendertable() {
 }
 
 
-$(document).on('click', '.delete', function (e) {
+$(document).on('click', '.delete', function () {
 
     let index = $(this).data('index');
-    students.splice(index, 1);
-    localStorage.setItem("students", JSON.stringify(students));
 
-    rendertable();
+    Swal.fire({
+        title: "Are you sure?",
+        text: "Student will be deleted",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Yes Delete"
+    }).then((result) => {
+
+        if (result.isConfirmed) {
+
+            students.splice(index, 1);
+
+            localStorage.setItem("students", JSON.stringify(students));
+
+            rendertable();
+
+            Swal.fire("Deleted!", "Student removed", "success");
+        }
+
+    });
+
 });
 
 
@@ -114,7 +161,7 @@ $(document).on('click', '.edit', function () {
     $('#editIndex').val(index);
     $("#saveBtn").text("Update");
 
-})
+});
 
 
 $(document).on('click', '.clone', function () {
@@ -124,7 +171,21 @@ $(document).on('click', '.clone', function () {
     let student = { ...students[index] };
 
     students.push(student);
-    rendertable();
-    
-})
 
+    localStorage.setItem("students", JSON.stringify(students));
+
+    rendertable();
+
+    const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 2000
+    });
+
+    Toast.fire({
+        icon: "success",
+        title: "Student Cloned"
+    });
+
+});
