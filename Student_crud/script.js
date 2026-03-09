@@ -2,29 +2,83 @@ let students = JSON.parse(localStorage.getItem("students")) || [];
 
 rendertable();
 
+// showing error on blur and removing on focus, does not stop form
+
+$('#name').blur(function () {
+    if ($(this).val().trim() === "") {
+        $('#nameError').removeClass('d-none');
+    }
+});
+
+$('#name').focus(function () {
+    $('#nameError').addClass('d-none');
+});
+
+
+$('#sage').blur(function () {
+
+    let age = Number($(this).val());
+
+    if ($(this).val() === "" || age < 0 || age > 22) {
+        $('#ageError').removeClass('d-none');
+    }
+});
+
+$('#sage').focus(function () {
+    $('#ageError').addClass('d-none');
+});
+
+
+$('#smarks').blur(function () {
+
+    let marks = Number($(this).val());
+
+    if ($(this).val() === "" || marks < 0 || marks > 1100) {
+        $('#marksError').removeClass('d-none');
+    }
+
+});
+
+$('#smarks').focus(function () {
+    $('#marksError').addClass('d-none');
+});
+
+
+// submit form event, validates form
 $('#infoForm').on("submit", function (event) {
 
     event.preventDefault();
 
     let sname = $('#name').val().trim();
-    let age = $('input[name=studentage]').val().trim();
-    let marks = $('input[name=studentMarks]').val().trim();
+    let age = Number($('#sage').val());
+    let marks = Number($('#smarks').val());
+
+    let valid = true;
+
+    if (sname === "") {
+        $('#nameError').removeClass('d-none');
+        valid = false;
+    } else {
+        $('#nameError').addClass('d-none');
+    }
+
+    if ($('#sage').val() === "" || age < 0 || age > 22) {
+        $('#ageError').removeClass('d-none');
+        valid = false;
+    } else {
+        $('#ageError').addClass('d-none');
+    }
+
+    if ($('#smarks').val() === "" || marks < 0 || marks > 1100) {
+        $('#marksError').removeClass('d-none');
+        valid = false;
+    } else {
+        $('#marksError').addClass('d-none');
+    }
+
+    if (!valid) return;
+
     let percentage = (marks / 1100) * 100;
-
-    if (sname === "" || age === "" || marks === "") {
-        Swal.fire("Error", "Enter Valid Info", "error");
-        return;
-    }
-
-    if (age < 0 || age > 22) {
-        Swal.fire("Invalid Age", "Age must be between 0 and 22", "warning");
-        return;
-    }
-
-    if (marks < 0 || marks > 1100) {
-        Swal.fire("Invalid Marks", "Marks must be between 0 and 1100", "warning");
-        return;
-    }
 
     const student = {
         stuName: sname,
@@ -33,7 +87,7 @@ $('#infoForm').on("submit", function (event) {
         stuPercentage: percentage.toFixed(2) + "%"
     };
 
-    // editing using hidden input
+    // editing using hidden input in form 
 
     // let editindex = $('#editIndex').val();
 
@@ -89,6 +143,7 @@ $('#infoForm').on("submit", function (event) {
     });
 
     // }
+
 });
 
 
@@ -180,25 +235,45 @@ $(document).on('click', '.clone', function () {
 
     let index = $(this).data('index');
 
-    let student = { ...students[index] };
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You want to duplicate this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, duplicate it!"
+    }).then((result) => {
+        if (result.isConfirmed) {
 
-    students.push(student);
+            let student = { ...students[index] };
 
-    localStorage.setItem("students", JSON.stringify(students));
+            students.push(student);
 
-    rendertable();
+            localStorage.setItem("students", JSON.stringify(students));
 
-    const Toast = Swal.mixin({
-        toast: true,
-        position: "top-end",
-        showConfirmButton: false,
-        timer: 2000
+            rendertable();
+
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 2000
+            });
+
+            Toast.fire({
+                icon: "success",
+                title: "Student Cloned"
+            });
+            Swal.fire({
+                title: "Duplicated!",
+                text: "Your data has been duplicated.",
+                icon: "success"
+            });
+        }
     });
 
-    Toast.fire({
-        icon: "success",
-        title: "Student Cloned"
-    });
+
 
 });
 
@@ -212,24 +287,34 @@ $('#updateStudent').click(function () {
 
     let index = $('#editIndex').val();
 
-    let name = $('#editName').val().trim();
-    let age = $('#editAge').val().trim();
-    let marks = $('#editMarks').val().trim();
+    let sname = $('#editName').val().trim();
+    let age = Number($('#editAge').val());
+    let marks = Number($('#editMarks').val());
 
-    if (sname === "" || age === "" || marks === "") {
-        Swal.fire("Error", "Enter Valid Info", "error");
-        return;
+    let valid = true;
+
+    if (sname === "") {
+        $('#editNameError').removeClass('d-none');
+        valid = false;
+    } else {
+        $('#editNameError').addClass('d-none');
     }
 
-    if (age < 0 || age > 22) {
-        Swal.fire("Invalid Age", "Age must be between 0 and 22", "warning");
-        return;
+    if ($('#editAge').val() === "" || age < 0 || age > 22) {
+        $('#editAgeError').removeClass('d-none');
+        valid = false;
+    } else {
+        $('#editAgeError').addClass('d-none');
     }
 
-    if (marks < 0 || marks > 1100) {
-        Swal.fire("Invalid Marks", "Marks must be between 0 and 1100", "warning");
-        return;
+    if ($('#editMarks').val() === "" || marks < 0 || marks > 1100) {
+        $('#editMarksError').removeClass('d-none');
+        valid = false;
+    } else {
+        $('#editMarksError').addClass('d-none');
     }
+
+    if (!valid) return;
 
     Swal.fire({
         title: "Update Student?",
@@ -243,7 +328,7 @@ $('#updateStudent').click(function () {
             let percentage = (marks / 1100) * 100;
 
             students[index] = {
-                stuName: name,
+                stuName: sname,
                 stuAge: age,
                 stuMarks: marks,
                 stuPercentage: percentage.toFixed(2) + "%"

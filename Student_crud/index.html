@@ -22,14 +22,27 @@
 
         <div class="formDiv">
             <form id="infoForm">
-                <div class="row">
+                <div class="row flex-column gap-4 fs-5">
                     <input type="hidden" id="editIndex">
-                    <div class="col"><input type="text" class="info form-control" name="studentName" id="name"
-                            placeholder="Enter Student Name"></div>
-                    <div class="col"><input type="number" class="info form-control" name="studentage" placeholder="Enter Age"></div>
-                </div>
-                <div class="row mt-5">
-                    <div class="col"><input type="number" class="info form-control" name="studentMarks" placeholder="Enter Marks">
+                    <div class="col">
+                        <label for="name" class="fw-bold">Name</label>
+                        <input type="text" class="info form-control" name="studentName" id="name"
+                            placeholder="i.e: Ali">
+                        <span id="nameError" class="fs-6 d-none error">Please enter correct name</span>
+                    </div>
+                    <div class="col">
+                        <label for="sage" class="fw-bold">Age</label>
+                        <input type="number" class="info form-control" name="studentage" id="sage"
+                            placeholder="i.e: 0-22">
+                        <span id="ageError" class="fs-6 d-none error">Age must be between 0-22</span>
+                    </div>
+
+
+                    <div class="col">
+                        <label for="smarks" class="fw-bold">Marks</label>
+                        <input type="number" class="info form-control" name="studentMarks" id="smarks"
+                            placeholder="i.e: 0-1100">
+                        <span id="marksError" class="fs-6 d-none error">Marks must be between 0-1100</span>
                     </div>
 
                     <div class="col "><button id="saveBtn" class="btn  btn-primary" type="submit">Save</button></div>
@@ -40,6 +53,14 @@
         </div>
 
         <div class="tableDiv rounded-2">
+            <!-- <div class="row w-100 m-0 mb-4">
+                <div class="col col-9">
+                    <input class=" form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                </div>
+                <div class="col col-3">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </div>
+            </div> -->
             <div class="row tablerow py-1 rounded-2">
                 <div class="col-2 text-center fs-5 fw-bold">Name</div>
                 <div class="col-2 text-center fs-5 fw-bold">Age</div>
@@ -81,26 +102,35 @@
                 </div>
                 <div class="modal-body">
                     <div class="modal-body">
-                        <label for="editName" class="fw-bold">Name</label>
+                        <div class="row flex-column gap-4 fs-5">
 
-                        <input type="text" id="editName" class="form-control mb-3" placeholder="Student Name">
+                            <div class="col">
+                                <label for="editName" class="fw-bold">Name</label>
+                                <input type="text" id="editName" class="form-control">
+                                <span id="editNameError" class="fs-6 d-none error">Please enter correct name</span>
+                            </div>
+                            <div class="col">
+                                <label for="editAge" class="fw-bold">Age</label>
+                                <input type="number" id="editAge" class="form-control">
+                                <span id="editAgeError" class="fs-6 d-none error">Age must be between 0-22</span>
+                            </div>
 
-                        <label for="editAge" class="fw-bold">Age</label>
-                        <input type="number" id="editAge" class="form-control mb-3" placeholder="Age">
 
-                        <label for="editMarks" class="fw-bold">Marks</label>
+                            <div class="col">
+                                <label for="editMarks" class="fw-bold">Marks</label>
+                                <input type="number" id="editMarks" class="form-control">
+                                <span id="editMarksError" class="fs-6 d-none error">Marks must be between 0-1100</span>
+                            </div>
 
-                        <input type="number" id="editMarks" class="form-control" placeholder="Marks">
-
+                        </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" id="updateStudent" class="btn btn-primary">Save changes</button>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" id="updateStudent" class="btn btn-primary">Save changes</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
 
 
@@ -110,13 +140,13 @@
 
 
 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
-        crossorigin="anonymous"></script>
-    <script src="./bootstrap.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+            integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+            crossorigin="anonymous"></script>
+        <script src="./bootstrap.js"></script>
 
-    <script src="./script.js"></script>
+        <script src="./script.js"></script>
 </body>
 
 </html>
