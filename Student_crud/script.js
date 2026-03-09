@@ -16,6 +16,16 @@ $('#infoForm').on("submit", function (event) {
         return;
     }
 
+    if (age < 0 || age > 22) {
+        Swal.fire("Invalid Age", "Age must be between 0 and 22", "warning");
+        return;
+    }
+
+    if (marks < 0 || marks > 1100) {
+        Swal.fire("Invalid Marks", "Marks must be between 0 and 1100", "warning");
+        return;
+    }
+
     const student = {
         stuName: sname,
         stuAge: age,
@@ -23,59 +33,62 @@ $('#infoForm').on("submit", function (event) {
         stuPercentage: percentage.toFixed(2) + "%"
     };
 
-    let editindex = $('#editIndex').val().trim();
+    // editing using hidden input
 
-    if (editindex !== "") {
+    // let editindex = $('#editIndex').val();
 
-        Swal.fire({
-            title: "Update Student?",
-            icon: "question",
-            showCancelButton: true,
-            confirmButtonText: "Yes, Update"
-        }).then((result) => {
+    // if (editindex !== "" && editindex !== null) {
+    //     $('#editIndex').val("");
 
-            if (result.isConfirmed) {
+    //     Swal.fire({
+    //         title: "Update Student?",
+    //         icon: "question",
+    //         showCancelButton: true,
+    //         confirmButtonText: "Yes, Update"
+    //     }).then((result) => {
 
-                students[editindex] = student;
+    //         if (result.isConfirmed) {
 
-                localStorage.setItem("students", JSON.stringify(students));
+    //             students[editindex] = student;
 
-                $("#saveBtn").text("Save");
-                $("#editIndex").val("");
+    //             localStorage.setItem("students", JSON.stringify(students));
 
-                rendertable();
+    //             $("#saveBtn").text("Save");
+    //             $("#editIndex").val("");
 
-                $('#infoForm')[0].reset();
+    //             rendertable();
 
-                Swal.fire("Updated!", "Student updated successfully", "success");
-            }
+    //             $('#infoForm')[0].reset();
 
-        });
+    //             Swal.fire("Updated!", "Student updated successfully", "success");
+    //         }
 
-    } else {
+    //     });
 
-        students.push(student);
+    // } else {
 
-        localStorage.setItem("students", JSON.stringify(students));
+    students.push(student);
 
-        rendertable();
+    localStorage.setItem("students", JSON.stringify(students));
 
-        this.reset();
+    rendertable();
 
-        const Toast = Swal.mixin({
-            toast: true,
-            position: "top-end",
-            showConfirmButton: false,
-            timer: 2000,
-            timerProgressBar: true
-        });
+    this.reset();
 
-        Toast.fire({
-            icon: "success",
-            title: "Student Added Successfully"
-        });
-    }
+    const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true
+    });
 
+    Toast.fire({
+        icon: "success",
+        title: "Student Added Successfully"
+    });
+
+    // }
 });
 
 
@@ -100,9 +113,10 @@ function rendertable() {
             </div>
 
             <div class="col">
-                <button class="BTN edit" data-index="${index}">
-                <i class="fa-solid fa-pen"></i>
-                </button>
+            <button class="BTN edit" data-index="${index}" 
+            data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <i class="fa-solid fa-pen"></i>
+            </button>
             </div>
 
             <div class="col">
@@ -148,18 +162,16 @@ $(document).on('click', '.delete', function () {
 
 });
 
-
 $(document).on('click', '.edit', function () {
 
     let index = $(this).data('index');
     let studentedit = students[index];
 
-    $('#name').val(studentedit.stuName);
-    $("input[name='studentage']").val(studentedit.stuAge);
-    $("input[name='studentMarks']").val(studentedit.stuMarks);
+    $('#editName').val(studentedit.stuName);
+    $('#editAge').val(studentedit.stuAge);
+    $('#editMarks').val(studentedit.stuMarks);
 
     $('#editIndex').val(index);
-    $("#saveBtn").text("Update");
 
 });
 
@@ -186,6 +198,68 @@ $(document).on('click', '.clone', function () {
     Toast.fire({
         icon: "success",
         title: "Student Cloned"
+    });
+
+});
+
+
+
+
+
+// only updating through  modal
+
+$('#updateStudent').click(function () {
+
+    let index = $('#editIndex').val();
+
+    let name = $('#editName').val().trim();
+    let age = $('#editAge').val().trim();
+    let marks = $('#editMarks').val().trim();
+
+    if (sname === "" || age === "" || marks === "") {
+        Swal.fire("Error", "Enter Valid Info", "error");
+        return;
+    }
+
+    if (age < 0 || age > 22) {
+        Swal.fire("Invalid Age", "Age must be between 0 and 22", "warning");
+        return;
+    }
+
+    if (marks < 0 || marks > 1100) {
+        Swal.fire("Invalid Marks", "Marks must be between 0 and 1100", "warning");
+        return;
+    }
+
+    Swal.fire({
+        title: "Update Student?",
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonText: "Yes Update"
+    }).then((result) => {
+
+        if (result.isConfirmed) {
+
+            let percentage = (marks / 1100) * 100;
+
+            students[index] = {
+                stuName: name,
+                stuAge: age,
+                stuMarks: marks,
+                stuPercentage: percentage.toFixed(2) + "%"
+            };
+
+            localStorage.setItem("students", JSON.stringify(students));
+
+            rendertable();
+
+            const modal = bootstrap.Modal.getInstance(document.getElementById('exampleModal'));
+            modal.hide();
+
+            Swal.fire("Updated!", "Student updated successfully", "success");
+
+        }
+
     });
 
 });
